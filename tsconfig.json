@@ -13,13 +13,24 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/stores/*": ["./src/stores/*"],
+      "@/data/*": ["./src/data/*"],
+      "@/providers/*": ["./src/providers/*"],
+      "@/actions/*": ["./src/actions/*"]
     }
   },
   "include": [
