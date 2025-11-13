@@ -1,57 +1,39 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DashboardStats } from '@/components/modules/dashboard/DashboardStats';
+import { RecentActivity } from '@/components/modules/dashboard/RecentActivity';
+import { QuickActions } from '@/components/modules/dashboard/QuickActions';
+import { SystemStatus } from '@/components/modules/dashboard/SystemStatus';
 
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="max-w-5xl w-full space-y-8">
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">
-            Admin Dashboard
+    <div className="space-y-8">
+      {/* Header Section with Gradient */}
+      <div className="relative overflow-hidden rounded-lg bg-linear-to-br from-primary/10 via-primary/5 to-background border p-8">
+        <div className="relative z-10">
+          <h1 className="text-4xl font-bold tracking-tight mb-2">
+            Hi, Welcome back 👋
           </h1>
-          <p className="text-muted-foreground">
-            Enterprise-grade modular admin dashboard
+          <p className="text-muted-foreground text-lg">
+            Here&apos;s what&apos;s happening with your projects today
           </p>
         </div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <CardHeader>
-              <CardTitle>Total Revenue</CardTitle>
-              <CardDescription>Last 30 days</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">$45,231.89</div>
-              <p className="text-xs text-muted-foreground">
-                +20.1% from last month
-              </p>
-            </CardContent>
-          </Card>
+      {/* Stats Cards */}
+      <DashboardStats />
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Total Users</CardTitle>
-              <CardDescription>Active users</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">2,350</div>
-              <p className="text-xs text-muted-foreground">
-                +180 new this month
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Total Orders</CardTitle>
-              <CardDescription>Pending orders</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">573</div>
-              <p className="text-xs text-muted-foreground">
-                +19% from last month
-              </p>
-            </CardContent>
-          </Card>
+      {/* Main Content Grid */}
+      <div className="grid gap-6 lg:grid-cols-3">
+        {/* Recent Activity - Takes 2 columns */}
+        <div className="lg:col-span-2">
+          <RecentActivity />
+        </div>
+        
+        {/* Sidebar - Takes 1 column */}
+        <div className="space-y-6">
+          <QuickActions />
+          <SystemStatus />
         </div>
       </div>
     </div>

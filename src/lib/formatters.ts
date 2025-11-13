@@ -12,15 +12,15 @@ export function formatDateTime(date: string | Date): string {
 
 export function formatRelativeDate(date: string | Date): string {
   const d = typeof date === 'string' ? parseISO(date) : date;
-  
+
   if (isToday(d)) {
     return `Today at ${format(d, 'hh:mm a')}`;
   }
-  
+
   if (isYesterday(d)) {
     return `Yesterday at ${format(d, 'hh:mm a')}`;
   }
-  
+
   return formatDistance(d, new Date(), { addSuffix: true });
 }
 
@@ -44,11 +44,11 @@ export function formatPercentage(value: number, decimals: number = 1): string {
 
 export function formatFileSize(bytes: number): string {
   if (bytes === 0) return '0 Bytes';
-  
+
   const k = 1024;
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  
+
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
 }
 
