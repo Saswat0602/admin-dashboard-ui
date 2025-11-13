@@ -48,8 +48,8 @@ export function RecentActivity() {
       <CardContent>
         <div className="space-y-3">
           {recentOrders.map((order, index) => (
-            <div 
-              key={order.id} 
+            <div
+              key={order.id}
               className="flex items-center gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-muted/50"
             >
               <Avatar className="h-10 w-10 border-2 border-background shadow-sm">

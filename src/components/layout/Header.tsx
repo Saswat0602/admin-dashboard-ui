@@ -50,7 +50,7 @@ export function Header() {
       </div>
       <div className="flex items-center gap-2">
         <ThemeToggle />
-        
+
         {/* Notifications Sheet */}
         <Sheet>
           <SheetTrigger asChild>

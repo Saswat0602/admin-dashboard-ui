@@ -29,7 +29,7 @@ export default function DashboardPage() {
         <div className="lg:col-span-2">
           <RecentActivity />
         </div>
-        
+
         {/* Sidebar - Takes 1 column */}
         <div className="space-y-6">
           <QuickActions />

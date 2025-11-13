@@ -10,6 +10,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { ChevronLeft, ChevronRight, LayoutDashboard } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { normalizeRoute } from '@/lib/routes';
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -55,11 +56,11 @@ export function Sidebar() {
           <nav className="flex flex-col gap-1">
             {enabledModules.map((module) => {
               const Icon = module.icon;
-              const isActive = pathname === `/dashboard${module.route}` || 
-                              (module.route !== '' && pathname.startsWith(`/dashboard${module.route}`));
+              const target = normalizeRoute(module.route);
+              const isActive = pathname === target || (module.route !== '' && pathname.startsWith(target));
 
               const NavButton = (
-                <Link key={module.id} href={`/dashboard${module.route}`} className="w-full">
+                <Link key={module.id} href={target} className="w-full">
                   <Button
                     variant={isActive ? 'secondary' : 'ghost'}
                     className={cn(
